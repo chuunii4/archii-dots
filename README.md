@@ -10,6 +10,8 @@ uhhh remind whoever thinks this looks good to download these:
   
   wm: the one with the gooner dev (bro's idle and lock stuff are also there)
 
+  web: zen
+
   terminal: nyaaa~
 
   launcher: rofi (the wayland one)

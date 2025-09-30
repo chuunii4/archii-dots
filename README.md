@@ -2,7 +2,7 @@ Does it look like I know what I'm doing here?
 
 uhhh remind whoever thinks this looks good to download these:
 
-  Linux: arch I think
+  Linux: arch I think (aur thing is y0y)
 
   shell: zsh (OMZ is there too and some plugins)
 

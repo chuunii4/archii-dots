@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Check if user provided a valid argument
+if [ "$#" -ne 1 ]; then
+  echo "Usage: WallpaperSetBackend <path_to_image>"
+  exit 1
+fi
+
+IMAGE="$1"
+
+# Sends notification
+notify-send "Switching Theme" "Please wait until theme switch confirmation..."
+
+# Sets wallpaper
+swww img "$IMAGE" --transition-type="any" --transition-step=90 --transition-fps="60"
+
+# Sets wallpaper
+wal -i "$IMAGE" -n 
+
+# Blurs background for wlogout
+magick $(cat ~/.cache/wal/wal) -blur 50x30 -resize 1920 ~/Pictures/Wallpapers/CurrentBlurred.png
+magick $(cat ~/.cache/wal/wal) -gravity center -crop 21:9 -resize 1000 ~/Pictures/Wallpapers/rofi.png
+
+# Sets Spicetify color scheme for the Sleek theme
+# pywal-spicetify Sleek
+
+# Refreshes waybar and swaync
+
+pkill waybar && hyprctl dispatch exec waybar
+
+pkill swaync && hyprctl dispatch exec swaync
+
+# Notifies user of theme switch
+notify-send "Theme Switched" "Enjoy your new theme!"

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Wallpaper Directory
+WALL_DIR="$HOME/Pictures/Wallpapers"
+
+# Current Directory
+CWD="$(pwd)"
+
+cd "$WALL_DIR"
+
+# Spaces in wallpaper names
+IFS=$'\n'
+
+# Grabs Wallpapers
+SELECTED_WALL=$(for a in *.jpg *.png *.jpeg; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu -p "")
+
+# Runs backend if user set valid wallpaper
+$HOME/.local/bin/WallpaperSetBackend ${SELECTED_WALL} || exit 1
+
+# Return to directory
+cd "$CWD" || exit 0

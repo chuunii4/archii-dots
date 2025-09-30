@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Wallpaper Directory
+WALL_DIR="$HOME/Pictures/Wallpapers"
+
+# Current Wallpaper
+CURRENT_WALL=$(swww query | grep "DP-2" | grep -v grep | awk '{print $8}')
+
+# Gets some random wallpaper that is not current
+RANDOM_WALL=$(find "$WALL_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+
+# Runs backend (please work)
+$HOME/.local/bin/WallpaperSetBackend ${RANDOM_WALL} || exit 1

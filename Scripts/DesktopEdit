@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+ICON="$1"
+
+sudo cp /usr/share/applications/"$ICON" ~/.local/share/applications 
+
+sudo chown $USER ~/.local/share/applications/"$ICON"

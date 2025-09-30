@@ -20,6 +20,8 @@ uhhh remind whoever thinks this looks good to download these:
 
   logout: wlogout
 
+  notifications: swaync
+
   wallpaper: swww
 
   theme: catppucin (the dark purple one)
